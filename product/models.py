@@ -10,6 +10,6 @@ class Product (models.Model):
     name = models.CharField(max_length=100)
     desc = models.CharField(max_length=250)
     price= models.IntegerField();
-
+    brand = models.CharField(max_length=100, default="NA")
 
 
