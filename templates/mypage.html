@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'style/mystyle.css' %}">
+
+    <title>
+
+        {% block title %}
+
+                My App
+
+        {% endblock%}
+
+    </title>
+</head>
+<body>
+
+<div class="myheading">
+
+<ul>
+
+    <li > <a href ="/home">Home </a></li>
+    <li> <a href ="/items"> Products </a></li>
+    <li> <a href ="/items">Search     </a></li>
+    <li>cart</li>
+    <li>Signup</li>
+</ul>
+
+</div>
+
+<div>
+
+{% block main %}
+
+
+{% endblock %}
+
+
+
+
+</div>
+
+<div style="float:left; clear:both">
+
+<h1> Footer</h1>
+
+
+</div>
+</body>
+</html>

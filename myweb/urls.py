@@ -16,20 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
+from django.template import loader
 
-def homePage (requset):
-    str = "This is my home page"
-    return HttpResponse(str)
+def myHomePage (req):
+    template = loader.get_template("home.html")
 
 
-def userRegister (req):
-    str = "<html><body><h1>Hello</h1></body></html>"
-    return  HttpResponse(str)
+    data = {
+    }
+    res = template.render(data, req)
+    return HttpResponse(res)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', homePage ),
-    path('register', userRegister ),
+    path('', myHomePage ),
+    path('home', myHomePage ),
     path ('', include('product.urls') )
 ]

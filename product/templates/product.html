@@ -1,8 +1,8 @@
 
 {% extends 'mypage.html' %}
+{% load static %}
 
-
- {% block title %}
+{% block title %}
 
                 Product details of {{ product.name }}
 
@@ -13,11 +13,32 @@
 
 {% block main %}
 
-{{ product.name }} <br/>
+<div>
 
-{{ product.desc }}  <br/>
+    <div style="float:left">
+
+        <img src ="{% static "images/python-logo.png" %}"  alt="My image" height = 200px width = 200px>
 
 
-{{ product.price }}  <br/>
+    </div>
+
+
+    <div style="float:left; clear:right">
+
+        {{ product.name }} <br/>
+
+        {{ product.desc }}  <br/>
+
+        {{ product.price }}  <br/>
+
+    </div>
+
+
+</div>
+
+
+
+
+
 
 {% endblock %}
