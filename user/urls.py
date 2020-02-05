@@ -1,12 +1,13 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import signup
+from .views import contactus, contactSave
 
 urlpatterns = [
 
 
-    path('signup', signup),
+    path('contactus', contactus),
+    path ('contactSave', contactSave)
 
 
 ]

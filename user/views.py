@@ -5,25 +5,31 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.core.mail import send_mail
+from .models import Contact
 
-def signup (req):
+def contactus (request):
 
-    if req.method=="GET":
+    template = loader.get_template("contact.html")
+    data = {}
+    res=template.render ( data, request )
+    return HttpResponse(res)
 
-        template = loader.get_template("signup.html")
 
-        data = {
-        }
-        res = template.render(data, req)
-        return HttpResponse(res)
 
-    else :
-        template = loader.get_template("signup_success.html")
+def contactSave (req):
 
-        data = {
-            "vals" : req.POST
-        }
+    c = Contact(
+        fname= req.POST["firstname"],
+        lname=req.POST["lastname"],
+        email=req.POST["email"],
+        phone=req.POST["phone"],
+        msg=req.POST["message"],
+    )
 
-        res = template.render(data, req)
-        return HttpResponse(res)
+    c.save()
+
+    template = loader.get_template("contactSuccess.html")
+    data = {}
+    res = template.render(data, req)
+    return HttpResponse(res)
 

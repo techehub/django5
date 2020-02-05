@@ -1,0 +1,44 @@
+{% extends 'mypage.html' %}
+
+{% block main %}
+
+<h1>Hello User </h1>
+
+
+<form action="contactSave" method="POST">
+
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <td>First Name </td>
+             <td><input type="text" name="firstname"></td>
+        </tr>
+        <tr>
+            <td> Last Name </td>
+             <td> <input type="text" name="lastname"> </td>
+        </tr>
+        <tr>
+            <td> Email</td>
+             <td> <input type="email" name="email"> </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+             <td> <input type="text" name="phone"> </td>
+        </tr>
+        <tr>
+            <td>Message</td>
+             <td><textarea rows="5" cols="50" name="message"> </textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+             <td><input type="submit" value="Submit"></td>
+        </tr>
+
+    </table>
+
+</form>
+
+
+
+{% endblock %}
