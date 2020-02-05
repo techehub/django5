@@ -32,5 +32,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', myHomePage ),
     path('home', myHomePage ),
-    path ('', include('product.urls') )
+    path ('', include('product.urls') ),
+    path('', include('user.urls'))
 ]

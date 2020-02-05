@@ -1,0 +1,23 @@
+{% extends 'mypage.html' %}
+
+
+{%  block main %}
+
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+    <input type="text" name="uname">
+    <input type="text" name="pwd" >
+    <input type="number" name="age" >
+    <input type="date" name="dob" >
+
+    <input type="submit" value="Register">
+
+</form>
+
+
+{% endblock %}

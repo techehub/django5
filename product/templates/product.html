@@ -4,9 +4,9 @@
 
 {% block title %}
 
-                Product details of {{ product.name }}
+            Product details of {{ product.name }}
 
-        {% endblock%}
+{% endblock%}
 
 
 
@@ -15,15 +15,15 @@
 
 <div>
 
-    <div style="float:left">
+
+        <div style="float:left">
 
         <img src ="{% static "images/python-logo.png" %}"  alt="My image" height = 200px width = 200px>
 
+        </div >
 
-    </div>
 
-
-    <div style="float:left; clear:right">
+      <div style="float:left;">
 
         {{ product.name }} <br/>
 
@@ -31,14 +31,9 @@
 
         {{ product.price }}  <br/>
 
-    </div>
-
-
+      </div>
+    
 </div>
-
-
-
-
 
 
 {% endblock %}
