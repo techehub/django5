@@ -61,7 +61,29 @@ def addItem (request):
         cartItems = request.session['cart']
 
     cartItems[pid] = qty
-    request.session['cart'] = cartItems 
+    request.session['cart'] = cartItems
     print(request.session['cart'])
     return HttpResponse("Added Item to Cart")
 
+
+def viewCart (request):
+    template = loader.get_template("cart.html")
+    if request.session.__contains__("cart"):
+        cartItems = request.session['cart']
+
+        items= []
+        for x,y in cartItems.items():
+            p =Product.objects.get(id=x)
+            items.append ({"id": x,
+                            "qty": y,
+                            "name": p.name ,
+                            "price": p.price,
+                            "total" : p.price * int(y)
+                            })
+
+        data ={"products": items}
+
+        res = template.render(data, request)
+        return HttpResponse(res)
+    else :
+        return HttpResponse("Your Cart is Empty")

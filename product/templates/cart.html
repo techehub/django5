@@ -1,0 +1,21 @@
+{% extends 'mypage.html' %}
+
+{% block mytitle %}
+
+    Product page for {{name}}
+
+{%  endblock %}
+
+{%  block main %}
+
+
+{%  for x in products %}
+
+ {{x.id}} -  {{x.qty}} - {{x.name}} - {{x.price}} - {{x.total}}
+
+</br>
+
+{% endfor %}
+
+
+{% endblock %}
