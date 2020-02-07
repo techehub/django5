@@ -31,8 +31,21 @@
 
         {{ product.price }}  <br/>
 
+         <form action="/addItem" >
+
+            Quantity <input type="number" name="qty">
+
+             <input type="hidden" value="{{product.id}}" name="pid">
+             <input type="submit" value="Add To Cart">
+
+         </form>
+
+
       </div>
-    
+
+
+
+
 </div>
 
 
