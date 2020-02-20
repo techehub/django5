@@ -98,8 +98,21 @@ def search (request):
     return HttpResponse(res)
 
 def mypruduct (request):
-    vals = {
+    vals ={
+        "products":
+            [
+        {
         "id": 123,
         "name": "OPPO"
+        },
+        {
+            "id": 444,
+            "name": "VIV0"
+        },
+        {
+            "id": 555,
+            "name": "Sony"
+        }
+    ]
     }
     return JsonResponse(data=vals)

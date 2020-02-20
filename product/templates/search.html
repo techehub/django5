@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+    function processSearchData () {
+         if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse (this.responseText)
+            displayData (data)
+         }
+       };
+
+
+    function displayData (data ){
+        var str= "<table border='1'>"
+        for (product of  data.products){
+               str= str + "<tr><td>" +  product.id +
+               "</td> <td>" + product.name  +" </td> </tr>"
+        }
+
+        str= str + "</table>"
+        var e = document.getElementById("searchdata")
+        e.innerHTML= str
+    }
+
+    function getdata(){
+       var req = new XMLHttpRequest();
+       req.open ("GET", "/mypruduct");
+       req.onreadystatechange= processSearchData
+       req.send ();
+    }
+
+    </script>
+
+</head>
+<body>
+
+<button onclick="getdata()">Click Me </button>
+<div id ="searchdata"></div>
+
+</body>
+</html>
