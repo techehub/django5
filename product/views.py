@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .models import Product
 
@@ -87,3 +87,19 @@ def viewCart (request):
         return HttpResponse(res)
     else :
         return HttpResponse("Your Cart is Empty")
+
+
+def search (request):
+    template = loader.get_template("search.html")
+    data = {
+
+    }
+    res = template.render(data, request)
+    return HttpResponse(res)
+
+def mypruduct (request):
+    vals = {
+        "id": 123,
+        "name": "OPPO"
+    }
+    return JsonResponse(data=vals)
